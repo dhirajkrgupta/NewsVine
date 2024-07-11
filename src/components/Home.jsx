@@ -3,8 +3,7 @@ import { useLoaderData,useSearchParams } from 'react-router-dom';
 
 
 const Home = () => {
-  const { articles ,totalResults} = useLoaderData();
-  console.log(articles,totalResults)
+  const { articles, totalResults } = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
   const category = searchParams.get('category') || 'general';
   const page = searchParams.get('page') || '1';
@@ -50,5 +49,6 @@ export const loadNews = async ({ request}) => {
 
   const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=ff58df0e54f6456e91241aa5500eb3af&page=${page}&pageSize=${pageSize}`);
   const data = await response.json();
+  console.log(data.articles);
   return { articles: data.articles,totalResults:data.totalResults };
 }
