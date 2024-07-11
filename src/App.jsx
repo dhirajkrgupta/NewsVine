@@ -8,7 +8,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <><Navbar /><div></div><Footer /></>,
+      element: <><Navbar /><Home/><Footer /></>,
       loader: loadNews,
     },
   ])

@@ -1,18 +1,10 @@
 import React from "react";
-import { useLoaderData,useSearchParams } from 'react-router-dom';
+import { useLoaderData} from 'react-router-dom';
 
 
 const Home = () => {
-  const { articles, totalResults } = useLoaderData();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const category = searchParams.get('category') || 'general';
-  const page = searchParams.get('page') || '1';
-  const pageSize = searchParams.get('pageSize') || '21';
-
-  const handlePageChange = (newPage) => {
-    searchParams.set('page', newPage);
-    setSearchParams(searchParams);
-  };
+  const { articles} = useLoaderData();
+  
 
   return (
     <div className="p-4">
@@ -31,10 +23,6 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-between font-bold mt-4">
-                    <button  type="button" className="btn btn-dark" onClick={()=>handlePageChange(Number(page)-1)} disabled={page <= 1} >&larr; Previous</button>
-                    <button  type="button" className="btn btn-dark" onClick={()=>handlePageChange(Number(page)+1)} disabled={page >= Math.ceil(totalResults/pageSize)}>Next &rarr;</button>
-      </div>
     </div>
     
   );
@@ -44,12 +32,9 @@ export default Home;
 export const loadNews = async ({ request }) => {
   const url = new URL(request.url);
   const category = url.searchParams.get('category') || 'general';
-  const page = url.searchParams.get('page') || 1;
-  const pageSize = url.searchParams.get('pageSize') || 21;
-  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
   try {
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`);
+    const response = await fetch(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -57,7 +42,7 @@ export const loadNews = async ({ request }) => {
     return data;
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
-    throw error; // Re-throw the error after logging it
+    throw error; 
   }
 };
 
