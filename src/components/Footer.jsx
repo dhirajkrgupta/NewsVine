@@ -2,80 +2,57 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-const useActiveLink = (category) => {
+const useActiveLink = category => {
   const location = useLocation();
-  return new URLSearchParams(location.search).get('category') === category;
+  return new URLSearchParams(location.search).get("category") === category;
 };
 const Footer = () => {
   return (
     <footer className="  text-black border-t-2">
-      <div className="grid grid-cols-2 p-4">
-      <Link
-        className="flex items-center justify-self-center "
-        to="/"
-        >
-        <div className="h-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4 ">
+        <Link className="flex items-center justify-self-center " to="/">
+          <div className="h-10">
             <img className="h-full" src={logo} alt="logo" />
-        </div>
-        <div className="text-3xl font-bold">
+          </div>
+          <div className="text-3xl font-bold">
             News<span className="text-red-600">Vine</span>
-        </div>
-      </Link>
-      <div className="grid grid-cols-3 ">
-        <div className="grid font-semibold">
-          
-          <NavLink
-            className={useActiveLink("sports") ? "text-[red]" : "text-[black]"}
-            to="?category=/sports"
-          >
-            Sports
-          </NavLink>
-          <NavLink
-            className={useActiveLink("business") ? "text-[red]" : "text-[black]"}
-            to="?category=/business"
-          >
-            Business
-          </NavLink>
-          <NavLink
-            className={useActiveLink("entertainment") ? "text-[red]" : "text-[black]"}
-            to="?category=/entertainment"
-          >
-            Entertainment
-          </NavLink>
-        </div>
-        <div className="grid font-semibold">
-          
-        <NavLink
-            className={useActiveLink("health") ? "text-[red]" : "text-[black]"}
-            to="?category=/health"
-          >
-            Health
-          </NavLink>
-          <NavLink
-            className={useActiveLink("science") ? "text-[red]" : "text-[black]"}
-            to="?category=/science"
-          >
-            Science
-          </NavLink>
-          <NavLink
-            className={useActiveLink("technology") ? "text-[red]" : "text-[black]"}
-            to="?category=/technology"
-          >
-            Technology
-            </NavLink>
-            
-        </div>
-        <div>
+          </div>
+        </Link>
+        
+          <ul className="grid  md:grid-cols-2 text-center font-semibold">
+            {[
+              "sports",
+              "business",
+              "entertainment",
+              "health",
+              "science",
+              "technology"
+            ].map(category =>
+              <NavLink
+                key={category}
+                to={`/?category=${category}`}
+                className={
+                  useActiveLink(category) ? "text-[red]" : "text-[black]"
+                }
+              >
+                <li>
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </li>
+              </NavLink>
+            )}
+          </ul>
+       
+        <div className="text-center sm:col-span-2 lg:col-span-1">
           <h1 className="font-bold py-2">LEGAL</h1>
           <p>Privacy Policy</p>
           <p>Terms & Conditions</p>
         </div>
       </div>
-      
-      </div>
 
       <div className="p-2 border-t-2 grid grid-cols-2 ">
-        <div className="text-center">© 2024dhirajkrgupta . All Rights Reserved.</div>
+        <div className="text-center">
+          © 2024dhirajkrgupta . All Rights Reserved.
+        </div>
         <div className="flex justify-self-center">
           <Link to="#" className="text-gray-500 hover:text-gray-900 mx-2">
             <svg
