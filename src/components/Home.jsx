@@ -41,14 +41,23 @@ const Home = () => {
 };
 
 export default Home;
-export const loadNews = async ({ request}) => {
+export const loadNews = async ({ request }) => {
   const url = new URL(request.url);
   const category = url.searchParams.get('category') || 'general';
   const page = url.searchParams.get('page') || 1;
   const pageSize = url.searchParams.get('pageSize') || 21;
+  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
-  const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=ff58df0e54f6456e91241aa5500eb3af&page=${page}&pageSize=${pageSize}`);
-  const data = await response.json();
-  console.log(data.articles);
-  return { articles: data.articles,totalResults:data.totalResults };
-}
+  try {
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+    throw error; // Re-throw the error after logging it
+  }
+};
+
