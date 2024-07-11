@@ -8,17 +8,17 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <><Navbar /><Home /><Footer /></>,
+      element: <><Navbar /><div></div><Footer /></>,
       loader: loadNews,
     },
   ])
 
   return (
-    <>
+    
       <div className="grid h-screen   grid-rows-[100px_1fr_164px]">
       <RouterProvider router={router} />
       </div>
-    </>
+    
   )
 }
 
