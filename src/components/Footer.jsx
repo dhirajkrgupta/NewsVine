@@ -9,7 +9,7 @@ const useActiveLink = category => {
 const Footer = () => {
   return (
     <footer className="  text-black bg-gray-800 border-t border-black shadow-md">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4 ">
+      <div className="grid bg-gray-800 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4 ">
         <Link className="flex items-center justify-self-center " to="/">
           <div className="h-10">
             <img className="h-full" src={logo} alt="logo" />
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="p-2 border-t border-gray-500 grid grid-cols-2 ">
+      <div className="p-2 bg-gray-800 border-t border-gray-500 grid grid-cols-2 ">
         <div className="text-center  text-gray-500">
           Copyright © 2024 dhirajkrgupta . All Rights Reserved.
         </div>
