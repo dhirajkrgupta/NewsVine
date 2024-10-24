@@ -7,19 +7,19 @@ const Home = () => {
   
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Top Headlines</h1>
+    <div className="p-4  bg-gray-900">
+      <h1 className="text-2xl text-purple-600 font-bold mb-4">Top Headlines</h1>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {articles.map((article) => (
-          <div key={article.url} className="border p-4 rounded-lg shadow-md">
+          <div key={article.url} className="p-4 rounded-2xl  bg-slate-800 shadow-lg">
             <img
               src={article.urlToImage || 'https://via.placeholder.com/150'}
               alt={article.title}
               className="mb-4 w-full h-40 object-cover rounded"
             />
-            <h2 className="text-lg font-semibold">{article.title}</h2>
-            <p className="text-sm text-gray-600">{article.description}</p>
-            <a href={article.url} className="text-blue-500 mt-2 block">Read more</a>
+            <h2 className="text-lg font-medium text-white">{article.title}</h2>
+            <p className="text-sm text-gray-400">{article.description}</p>
+            <a href={article.url} className="text-purple-700 mt-2 block">Read more</a>
           </div>
         ))}
       </div>

@@ -15,7 +15,7 @@ function App() {
 
   return (
     
-      <div className="grid h-screen   grid-rows-[100px_1fr_164px]">
+      <div className="grid h-screen   grid-rows-[1fr_1fr_164px] font-custom ">
       <RouterProvider router={router} />
       </div>
     

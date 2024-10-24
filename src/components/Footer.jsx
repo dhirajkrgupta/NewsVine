@@ -8,14 +8,14 @@ const useActiveLink = category => {
 };
 const Footer = () => {
   return (
-    <footer className="  text-black border-t-2">
+    <footer className="  text-black bg-gray-800 border-t border-black shadow-md">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4 ">
         <Link className="flex items-center justify-self-center " to="/">
           <div className="h-10">
             <img className="h-full" src={logo} alt="logo" />
           </div>
-          <div className="text-3xl font-bold">
-            News<span className="text-red-600">Vine</span>
+          <div className="text-3xl font-bold text-white">
+            News<span className="text-purple-700">Vine</span>
           </div>
         </Link>
         
@@ -32,7 +32,7 @@ const Footer = () => {
                 key={category}
                 to={`/?category=${category}`}
                 className={
-                  useActiveLink(category) ? "text-[red]" : "text-[black]"
+                  useActiveLink(category) ? "text-purple-700" : "text-purple-300"
                 }
               >
                 <li>
@@ -42,19 +42,19 @@ const Footer = () => {
             )}
           </ul>
        
-        <div className="text-center sm:col-span-2 lg:col-span-1">
+        <div className="text-center sm:col-span-2 lg:col-span-1 text-gray-500">
           <h1 className="font-bold py-2">LEGAL</h1>
           <p>Privacy Policy</p>
           <p>Terms & Conditions</p>
         </div>
       </div>
 
-      <div className="p-2 border-t-2 grid grid-cols-2 ">
-        <div className="text-center">
-          © 2024dhirajkrgupta . All Rights Reserved.
+      <div className="p-2 border-t border-gray-500 grid grid-cols-2 ">
+        <div className="text-center  text-gray-500">
+          Copyright © 2024 dhirajkrgupta . All Rights Reserved.
         </div>
-        <div className="flex justify-self-center">
-          <Link to="#" className="text-gray-500 hover:text-gray-900 mx-2">
+        <div className="flex justify-center md:justify-end items-center md:px-5">
+          <Link to="#" className="text-gray-300  mx-2">
             <svg
               className="w-4 h-4"
               aria-hidden="true"
@@ -69,7 +69,7 @@ const Footer = () => {
               />
             </svg>
           </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900 mx-2">
+          <Link to="#" className="text-gray-300  mx-2">
             <svg
               className="w-4 h-4"
               aria-hidden="true"
@@ -80,7 +80,7 @@ const Footer = () => {
               <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
             </svg>
           </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900 mx-2">
+          <Link to="#" className="text-gray-300  mx-2">
             <svg
               className="w-4 h-4"
               aria-hidden="true"
@@ -96,7 +96,7 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Twitter page</span>
           </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900 mx-2">
+          <Link to="#" className="text-gray-300  mx-2">
             <svg
               className="w-4 h-4"
               aria-hidden="true"
@@ -111,7 +111,7 @@ const Footer = () => {
               />
             </svg>
           </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900 mx-2">
+          <Link to="#" className="text-gray-300  mx-2">
             <svg
               className="w-4 h-4"
               aria-hidden="true"
